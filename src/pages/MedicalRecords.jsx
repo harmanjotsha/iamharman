@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../services/mockApi';
 import '../styles/Records.css';
@@ -11,7 +11,7 @@ export const MedicalRecords = () => {
     queryFn: api.getMedicalRecords
   });
 
-  const [activeTab, setActiveTab] = React.useState('lab');
+  const [activeTab, setActiveTab] = useState('lab');
 
   if (isLoading) {
     return (
