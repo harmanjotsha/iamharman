@@ -11,10 +11,18 @@ import { Dashboard } from './pages/Dashboard';
 import { Search } from './pages/Search';
 import { Appointments } from './pages/Appointments';
 import { Profile } from './pages/Profile';
+import { BookAppointment } from './pages/BookAppointment';
+import { MedicalRecords } from './pages/MedicalRecords';
 import './App.css';
-
-const BookAppointment = lazy(() => import('./pages/BookAppointment').then(module => ({ default: module.BookAppointment })));
-const MedicalRecords = lazy(() => import('./pages/MedicalRecords').then(module => ({ default: module.MedicalRecords })));
+import './styles/Dashboard.css';
+import './styles/Landing.css';
+import './styles/Auth.css';
+import './styles/Search.css';
+import './styles/Appointments.css';
+import './styles/Profile.css';
+import './styles/Records.css';
+import './styles/Layout.css';
+import './styles/Booking.css';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -62,14 +70,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <Suspense fallback={
-                      <div className="loading-state">
-                        <div className="spinner"></div>
-                        <p>Loading...</p>
-                      </div>
-                    }>
-                      <BookAppointment />
-                    </Suspense>
+                    <BookAppointment />
                   </Layout>
                 </ProtectedRoute>
               }
@@ -89,14 +90,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <Suspense fallback={
-                      <div className="loading-state">
-                        <div className="spinner"></div>
-                        <p>Loading...</p>
-                      </div>
-                    }>
-                      <MedicalRecords />
-                    </Suspense>
+                    <MedicalRecords />
                   </Layout>
                 </ProtectedRoute>
               }
